@@ -1,18 +1,13 @@
 from typing import List, Optional, Dict
-from versions import __version__
+from .versions import __version__
+from .core import PageDetails
 
 
-class FacebookScraper:
-
-    @staticmethod
-    def PageInfo(url: str) -> Optional[Dict[str, Optional[str]]]:
-
-        return PageInfo.PageInfo(url)
+class Scraper:
 
     @staticmethod
-    def PagePostInfo(url: str) -> Optional[List[Dict[str, Optional[str]]]]:
+    def fetch_page_details(page_url: str) -> Optional[Dict[str, Optional[str]]]:
+        return PageDetails.retrieve(page_url)
 
-        return PagePostInfo.PagePostInfo(url)
 
-
-__all__ = ["FacebookPageScraper", "PageInfo", "PagePostInfo"]
+__all__ = ["Scraper", "PageDetails"]
